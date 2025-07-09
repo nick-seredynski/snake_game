@@ -1,7 +1,7 @@
-import turtle
+
 import time
 from turtle import Turtle, Screen
-start_pos = [(0,0), (-20,0), (-40,0)]
+from snake_dependency import Snake
 turtle_list = []
 
 tim = Turtle()
@@ -13,13 +13,7 @@ screen.bgcolor("black")
 screen.title("Snake game")
 screen.tracer(0)
 
-for new_pos in start_pos:
-    new_seg = Turtle("square")
-    new_seg.shape("square")
-    new_seg.penup()
-    new_seg.color("white")
-    new_seg.goto(new_pos)
-    turtle_list.append(new_seg)
+Snake()
 
 screen.update()
 
@@ -33,3 +27,4 @@ while game_is_on:
         new_y = turtle_list[seg - 1].ycor()
         turtle_list[seg].goto(new_x, new_y)
     turtle_list[0].forward(20)
+
