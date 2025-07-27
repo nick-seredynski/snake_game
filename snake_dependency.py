@@ -1,4 +1,5 @@
 
+# controls snake blueprint
 from turtle import Turtle
 start_pos = [(0, 0), (-20, 0), (-40, 0)]
 move_distance = 20
@@ -26,6 +27,12 @@ class Snake:
 
     def extend_segments(self):
         self.add_segments(self.segments[-1].position())
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_segments()
 
 
     def move_segments(self):
